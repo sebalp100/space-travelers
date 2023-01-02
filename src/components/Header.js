@@ -34,7 +34,14 @@ function Header() {
             Dragons
           </NavLink>
         </li>
-        <li>My Profile</li>
+        <li>
+          <NavLink
+            to="/Profile"
+            className="navLink"
+          >
+            My Profile
+          </NavLink>
+        </li>
       </div>
     </nav>
   );

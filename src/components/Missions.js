@@ -20,18 +20,18 @@ const Mission = () => {
               <tr className="head">
                 <th className="name">Mission</th>
                 <th className="desc">Description</th>
-                <th>Status</th>
-                <th>Joined</th>
+                <th className="status">Status</th>
+                <th aria-label="Join Mission" />
               </tr>
             </thead>
             <tbody>
               {
                 missions.map((user) => (
                   <tr key={user.mission_id}>
-                    <td key={user.mission_id}>{user.mission_name}</td>
+                    <td key={user.mission_id} className="missionName">{user.mission_name}</td>
                     <td key={user.description}>{user.description}</td>
-                    <td className="member"><button type="button">Not A Member</button></td>
-                    <td>J</td>
+                    <td className="member"><button className="memberButton" type="button">NOT A MEMBER</button></td>
+                    <td><button className="joinButton" type="button">Join Mission</button></td>
                   </tr>
                 ))
               }

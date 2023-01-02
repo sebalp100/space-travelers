@@ -8,6 +8,7 @@ import Missions from './components/Missions';
 import Header from './components/Header';
 import Rocket from './components/Rockets';
 import Dragons from './components/Dragons';
+import Profile from './components/Profile';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/" element={<Rocket />} />
           <Route path="/Missions" element={<Missions />} />
           <Route path="/Dragons" element={<Dragons />} />
+          <Route path="/Profile" element={<Profile />} />
         </Routes>
       </>
     </BrowserRouter>
