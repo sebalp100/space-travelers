@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Dragons = () => (
+const Profile = () => (
   <div className="listContainer">
-    <div className="itemDiv">
-      <p>Dragons</p>
+    <div className="bookDiv">
+      <p>My Profile</p>
     </div>
     <div className="bar" />
   </div>
 );
-export default Dragons;
+export default Profile;
