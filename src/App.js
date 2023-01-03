@@ -2,7 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { fetchMissions } from './redux/home/missionSlice';
+import { fetchMissions } from './redux/missions/missionSlice';
 
 import Missions from './components/Missions';
 import Header from './components/Header';
