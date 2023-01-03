@@ -12,7 +12,7 @@ function Header() {
       <div className="link">
         <li>
           <NavLink
-            to="/Rockets"
+            to="/"
             className="navLink"
           >
             Rockets
