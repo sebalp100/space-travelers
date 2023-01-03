@@ -1,5 +1,5 @@
 import logger from 'redux-logger';
-import missionsReducer from './home/missionSlice';
+import missionsReducer from './missions/missionSlice';
 
 const { configureStore } = require('@reduxjs/toolkit');
 
