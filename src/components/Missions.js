@@ -33,19 +33,22 @@ const Mission = () => {
             </thead>
             <tbody>
               {
-                missions.map((user) => (
-                  <tr key={user.mission_id}>
-                    <td key={user.mission_id} className="missionName">{user.mission_name}</td>
-                    <td key={user.description}>{user.description}</td>
+                missions.map((mission) => (
+                  <tr key={mission.mission_id}>
+                    <td key={mission.mission_id} className="missionName">{mission.mission_name}</td>
+                    <td key={mission.description}>{mission.description}</td>
                     <td className="member">
-                      <button className="memberButton" type="button">NOT A MEMBER</button>
+                      {' '}
+                      {!mission.reserved && (<button className="memberButton" type="button">NOT A MEMBER</button>)}
+                      {' '}
+                      {mission.reserved && (<button className="activeButton" type="button">Active Member</button>)}
                     </td>
                     <td>
-                      {!user.reserved && (
-                        <button className="joinButton" type="button" onClick={() => dispatch(joinMission(user.mission_id))}>Join Mission</button>
+                      {!mission.reserved && (
+                        <button className="joinButton" type="button" onClick={() => dispatch(joinMission(mission.mission_id))}>Join Mission</button>
                       )}
-                      {user.reserved && (
-                        <button type="button" className="leaveButton" onClick={() => dispatch(leaveMission(user.mission_id))}>Leave Mission</button>
+                      {mission.reserved && (
+                        <button type="button" className="leaveButton" onClick={() => dispatch(leaveMission(mission.mission_id))}>Leave Mission</button>
                       )}
                     </td>
                   </tr>
