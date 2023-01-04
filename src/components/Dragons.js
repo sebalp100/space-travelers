@@ -1,8 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { joinDragon } from '../redux/dragon/dragon';
 
 const Dragons = () => {
   const dragons = useSelector((state) => state.dragons.dragons);
+  const dispatch = useDispatch();
   return (
     <>
       {dragons.loading && <div>Loading...</div>}
@@ -14,37 +16,26 @@ const Dragons = () => {
       ) : null}
       {!dragons.loading && dragons.length ? (
         <div className="tableContainer">
-          {dragons.map((user) => (
-            <ul key={user.id}>
+          {dragons.map((dragon) => (
+            <ul key={dragon.id}>
               <li className="dragonImages">
-                {user.flickr_images.map((image) => (
-                  <div key={user.flickr_images} className="slides fade">
+                {dragon.flickr_images.map((image) => (
+                  <div key={dragon.flickr_images} className="slides fade">
                     <img src={image} alt="Dragon" />
                   </div>
                 ))}
               </li>
               <li>
                 <div className="dragonName">
-                  {' '}
-                  {user.reserved && user.reserved ? (<span className="reservation-text">Reserved</span>) : null}
-                  {' '}
-                  {user.name}
+                  <span className="reservation-text">Reserved</span>
+                  {dragon.name}
                 </div>
-                <div>{user.type}</div>
-                {!user.reserved ? (
-                  <div className="reservation-button">
-                    <button className="reservation-button" type="button">
-                      Reseve Dragon
-                    </button>
-                  </div>
-                ) : null}
-                {user.reserved && user.reserved ? (
-                  <div className="cancel-reservation-button">
-                    <button className="cancel-reservation-button" type="button">
-                      Cancel reservation
-                    </button>
-                  </div>
-                ) : null}
+                <div>{dragon.type}</div>
+                <div className="reservation-button">
+                  <button className="reservation-button" type="button" onClick={() => dispatch(joinDragon(dragon.id))}>
+                    Reseve Dragon
+                  </button>
+                </div>                
               </li>
             </ul>
           ))}
