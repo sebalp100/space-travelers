@@ -1,19 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { joinMission, fetchMissions } from '../redux/missions/missionSlice';
 
 const Mission = () => {
   const missions = useSelector((state) => state.missions.missions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (missions.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, missions]);
 
   return (
     <div>
-      {missions.loading && <div>Loading...</div>}
-      {!missions.loading && missions.error ? (
+      {missions.error ? (
         <div>
           Error:
           {missions.error}
         </div>
       ) : null}
-      {!missions.loading && missions.length ? (
+      {missions && missions.length ? (
         <div className="tableContainer">
           <table>
             <thead>
@@ -30,8 +37,12 @@ const Mission = () => {
                   <tr key={user.mission_id}>
                     <td key={user.mission_id} className="missionName">{user.mission_name}</td>
                     <td key={user.description}>{user.description}</td>
-                    <td className="member"><button className="memberButton" type="button">NOT A MEMBER</button></td>
-                    <td><button className="joinButton" type="button">Join Mission</button></td>
+                    <td className="member">
+                      <button className="memberButton" type="button">NOT A MEMBER</button>
+                    </td>
+                    <td>
+                      <button className="joinButton" type="button" onClick={() => dispatch(joinMission(user.mission_id))}>Join Mission</button>
+                    </td>
                   </tr>
                 ))
               }
