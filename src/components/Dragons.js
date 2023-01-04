@@ -35,7 +35,7 @@ const Dragons = () => {
                   <button className="reservation-button" type="button" onClick={() => dispatch(joinDragon(dragon.id))}>
                     Reseve Dragon
                   </button>
-                </div>                
+                </div>
               </li>
             </ul>
           ))}
