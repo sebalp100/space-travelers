@@ -43,7 +43,7 @@ td,
 th {
   border: 1px solid rgb(209, 201, 201);
   text-align: left;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .tableContainer {
@@ -54,6 +54,7 @@ th {
 
 .head:nth-child(1) {
   background-color: white;
+  height: 40px;
 }
 
 tr:nth-child(odd) {
@@ -67,4 +68,23 @@ tr:nth-child(odd) {
 
 .desc {
   width: 70%;
+}
+
+.missionName {
+  font-weight: bold;
+}
+
+.memberButton {
+  background-color: rgb(155, 155, 155);
+  color: white;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 4px;
+}
+
+.joinButton {
+  color: rgb(136, 136, 136);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  padding: 10px;
 }
