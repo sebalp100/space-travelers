@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { joinDragon } from '../redux/dragon/dragon';
+import { joinDragon, cancelDragon } from '../redux/dragon/dragon';
 
 const Dragons = () => {
   const dragons = useSelector((state) => state.dragons.dragons);
@@ -34,6 +34,11 @@ const Dragons = () => {
                 <div className="reservation-button">
                   <button className="reservation-button" type="button" onClick={() => dispatch(joinDragon(dragon.id))}>
                     Reseve Dragon
+                  </button>
+                </div>
+                <div className="reservation-button">
+                  <button className="reservation-button" type="button" onClick={() => dispatch(cancelDragon(dragon.id))}>
+                    Cancel Reservation
                   </button>
                 </div>
               </li>
