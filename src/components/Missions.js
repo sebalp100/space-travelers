@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const Mission = () => {
-  const missions = useSelector((state) => state.missionsReducer.missions);
+  const missions = useSelector((state) => state.missions.missions);
 
   return (
     <div>

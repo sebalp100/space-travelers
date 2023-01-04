@@ -12,8 +12,8 @@ import Profile from './components/Profile';
 
 const App = () => {
   const dispatch = useDispatch();
-  const dragons = useSelector((state) => state.dragonReducer);
-  const missions = useSelector((state) => state.missionsReducer);
+  const dragons = useSelector((state) => state.dragons);
+  const missions = useSelector((state) => state.missions);
   useEffect(() => {
     dispatch(getAllDragons());
     dispatch(fetchMissions());
