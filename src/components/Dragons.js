@@ -1,7 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid';
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 import { joinDragon, cancelDragon } from '../redux/dragon/dragon';
+import './Dragon.css';
 
 const Dragons = () => {
   const dragons = useSelector((state) => state.dragons.dragons);
@@ -16,49 +19,44 @@ const Dragons = () => {
         </div>
       ) : null}
       {!dragons.loading && dragons.length ? (
-        <div className="tableContainer">
+        <div className="dragon-container">
           {dragons.map((dragon) => (
-            <ul key={dragon.id}>
-              <li className="dragonImages">
-                {dragon.flickr_images.map((image) => (
-                  <div key={nanoid()} className="slides fade">
-                    <img src={image} alt="Dragon" />
-                  </div>
-                ))}
-              </li>
-              <li>
-                <div className="dragonName">
+            <div className="dragon-item" key={dragon.id}>
+              <div className="dragon-images">
+                <AwesomeSlider>
+                  {dragon.flickr_images.map((image) => (
+                    <div key={nanoid()} data-src={image} />
+                  ))}
+                </AwesomeSlider>
+              </div>
+              <div className="dragon-details">
+                <div className="dragon-name">
                   {dragon.reserved && (
-                    <span className="reservation-text">Reserved</span>
+                    <span className="dragon-badge">Reserved</span>
                   )}
                   {dragon.name}
                 </div>
-                <div>{dragon.type}</div>
+                <div className="dragon-type">{dragon.type}</div>
                 {!dragon.reserved && (
-                  <div className="reservation-button">
-                    <button
-                      className="reservation-button"
-                      type="button"
-                      onClick={() => dispatch(joinDragon(dragon.id))}
-                    >
-                      Reseve Dragon
-                    </button>
-                  </div>
+                  <button
+                    className="reservation-button"
+                    type="button"
+                    onClick={() => dispatch(joinDragon(dragon.id))}
+                  >
+                    Reseve Dragon
+                  </button>
                 )}
                 {dragon.reserved && (
-                  <div className="reservation-button">
-                    <button
-                      className="reservation-button"
-                      type="button"
-                      onClick={() => dispatch(cancelDragon(dragon.id))}
-                    >
-                      Cancel Reservation
-                    </button>
-                  </div>
+                  <button
+                    className="dragon-cancel-btn"
+                    type="button"
+                    onClick={() => dispatch(cancelDragon(dragon.id))}
+                  >
+                    Cancel Reservation
+                  </button>
                 )}
-
-              </li>
-            </ul>
+              </div>
+            </div>
           ))}
         </div>
       ) : null}
