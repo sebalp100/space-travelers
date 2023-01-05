@@ -28,13 +28,13 @@ const Dragons = () => {
               </li>
               <li>
                 <div className="dragonName">
-                  {dragon.reserved ? (
+                  {dragon.reserved && (
                     <span className="reservation-text">Reserved</span>
-                  ) : null}
+                  )}
                   {dragon.name}
                 </div>
                 <div>{dragon.type}</div>
-                {!dragon.reserved ? (
+                {!dragon.reserved && (
                   <div className="reservation-button">
                     <button
                       className="reservation-button"
@@ -44,8 +44,8 @@ const Dragons = () => {
                       Reseve Dragon
                     </button>
                   </div>
-                ) : null}
-                {dragon.reserved ? (
+                )}
+                {dragon.reserved && (
                   <div className="reservation-button">
                     <button
                       className="reservation-button"
@@ -55,7 +55,7 @@ const Dragons = () => {
                       Cancel Reservation
                     </button>
                   </div>
-                ) : null}
+                )}
 
               </li>
             </ul>
