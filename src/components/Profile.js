@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getAllDragons } from '../redux/dragon/dragon';
 import { getRocket } from '../redux/rocket/rocketSlice';
 import '../styles/myProfile.css';
-import { getAllDragons } from '../redux/dragon/dragon';
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const dragons = useSelector((state) => state.dragons.dragons)
-  const rockets = useSelector((state) => state.rockets.rocketData);;
-
+  const dragons = useSelector((state) => state.dragons.dragons);
+  const rockets = useSelector((state) => state.rockets.rocketData);
   useEffect(() => {
     if (dragons.length === 0) {
       dispatch(getAllDragons());
     }
   }, [dispatch, dragons.length]);
+
   useEffect(() => {
     if (rockets.length === 0) {
       dispatch(getRocket());
     }
   }, [dispatch, rockets.length]);
 
-  const reservedDragons = dragons.filter((dragon) => dragon.reserved === true);
   const reservedRockets = rockets.filter((rocket) => rocket.reserved === true);
+  const reservedDragons = dragons.filter((dragon) => dragon.reserved === true);
 
   return (
     <section className="profile">
@@ -47,9 +47,9 @@ const Profile = () => {
               ))}
             </ul>
           )}
+      </div>
     </section>
   );
 };
 
 export default Profile;
-
