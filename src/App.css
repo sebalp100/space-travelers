@@ -61,6 +61,10 @@ tr:nth-child(odd) {
   background-color: #f2f2f2;
 }
 
+.member {
+  padding: 0 1%;
+}
+
 .member,
 .name {
   width: 10%;
@@ -74,17 +78,56 @@ tr:nth-child(odd) {
   font-weight: bold;
 }
 
-.memberButton {
+.join-leave {
+  padding: 0 1%;
+}
+
+.memberButton,
+.activeButton {
   background-color: rgb(155, 155, 155);
   color: white;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 12px;
   padding: 4px;
+  border: none;
 }
 
-.joinButton {
+.activeButton {
+  background-color: rgb(0, 175, 175);
+  margin-left: 5%;
+}
+
+.joinButton,
+.leaveButton {
   color: rgb(136, 136, 136);
   background-color: transparent;
   background-repeat: no-repeat;
   padding: 10px;
+}
+
+.leaveButton {
+  color: coral;
+  border: 2px solid coral;
+  padding: 5px;
+}
+
+.listsContainer {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  gap: 20px;
+}
+
+.missionList {
+  display: flex;
+  flex-direction: column;
+}
+
+.missionBox {
+  border: 1px solid #f2f2f2;
+  padding: 15px 0;
+}
+
+.missionsDiv {
+  width: 33%;
 }

@@ -43,7 +43,7 @@ const Mission = () => {
                       {' '}
                       {mission.reserved && (<button className="activeButton" type="button">Active Member</button>)}
                     </td>
-                    <td>
+                    <td className="join-leave">
                       {!mission.reserved && (
                         <button className="joinButton" type="button" onClick={() => dispatch(joinMission(mission.mission_id))}>Join Mission</button>
                       )}
