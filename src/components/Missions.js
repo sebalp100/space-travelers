@@ -1,19 +1,26 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { joinMission, leaveMission, fetchMissions } from '../redux/missions/missionSlice';
 
 const Mission = () => {
-  const missions = useSelector((state) => state.missionsReducer.missions);
+  const missions = useSelector((state) => state.missions.missions);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (missions.length === 0) {
+      dispatch(fetchMissions());
+    }
+  }, [dispatch, missions]);
 
   return (
     <div>
-      {missions.loading && <div>Loading...</div>}
-      {!missions.loading && missions.error ? (
+      {missions.error ? (
         <div>
           Error:
           {missions.error}
         </div>
       ) : null}
-      {!missions.loading && missions.length ? (
+      {missions && missions.length ? (
         <div className="tableContainer">
           <table>
             <thead>
@@ -26,12 +33,24 @@ const Mission = () => {
             </thead>
             <tbody>
               {
-                missions.map((user) => (
-                  <tr key={user.mission_id}>
-                    <td key={user.mission_id} className="missionName">{user.mission_name}</td>
-                    <td key={user.description}>{user.description}</td>
-                    <td className="member"><button className="memberButton" type="button">NOT A MEMBER</button></td>
-                    <td><button className="joinButton" type="button">Join Mission</button></td>
+                missions.map((mission) => (
+                  <tr key={mission.mission_id}>
+                    <td key={mission.mission_id} className="missionName">{mission.mission_name}</td>
+                    <td key={mission.description}>{mission.description}</td>
+                    <td className="member">
+                      {' '}
+                      {!mission.reserved && (<button className="memberButton" type="button">NOT A MEMBER</button>)}
+                      {' '}
+                      {mission.reserved && (<button className="activeButton" type="button">Active Member</button>)}
+                    </td>
+                    <td>
+                      {!mission.reserved && (
+                        <button className="joinButton" type="button" onClick={() => dispatch(joinMission(mission.mission_id))}>Join Mission</button>
+                      )}
+                      {mission.reserved && (
+                        <button type="button" className="leaveButton" onClick={() => dispatch(leaveMission(mission.mission_id))}>Leave Mission</button>
+                      )}
+                    </td>
                   </tr>
                 ))
               }

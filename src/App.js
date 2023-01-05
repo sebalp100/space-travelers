@@ -2,8 +2,7 @@ import './App.css';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { fetchMissions } from './redux/missions/missionSlice';
-
+import { getAllDragons } from './redux/dragon/dragon';
 import Missions from './components/Missions';
 import Header from './components/Header';
 import Rocket from './components/Rockets';
@@ -12,11 +11,10 @@ import Profile from './components/Profile';
 
 const App = () => {
   const dispatch = useDispatch();
-  const missions = useSelector((state) => state.missionsReducer);
-
+  const dragons = useSelector((state) => state.dragons);
   useEffect(() => {
-    dispatch(fetchMissions());
-  }, [dispatch, missions.refresh]);
+    dispatch(getAllDragons());
+  }, [dispatch, dragons.refresh]);
   return (
     <BrowserRouter>
       <>
