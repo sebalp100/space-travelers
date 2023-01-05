@@ -20,19 +20,25 @@ export const getAllDragons = createAsyncThunk(GET_ALL_DRAGONS, async () => {
   }));
   return formatedDragons;
 });
+const manageDragonBooking = (state, action, booking) => {
+  const newDragons = state.dragons.map((dragon) => {
+    if (dragon.id !== action.payload) return dragon;
+    return { ...dragon, reserved: booking };
+  });
+  return {
+    ...state,
+    dragons: newDragons,
+  };
+};
 const dragonsSlice = createSlice({
   name: 'dragons',
   initialState,
   reducers: {
-    joinDragon: (state, action) => {
-      const newDragons = state.dragons.map((dragon) => {
-        if (dragon.id !== action.payload) return dragon;
-        return { ...dragon, reserved: true };
-      });
-      return {
-        ...state,
-        dragons: newDragons,
-      };
+    joinDragon(state, action) {
+      return manageDragonBooking(state, action, true);
+    },
+    cancelDragon(state, action) {
+      return manageDragonBooking(state, action, false);
     },
   },
   extraReducers: (builder) => {
@@ -51,5 +57,5 @@ const dragonsSlice = createSlice({
     }));
   },
 });
-export const { joinDragon } = dragonsSlice.actions;
+export const { joinDragon, cancelDragon } = dragonsSlice.actions;
 export default dragonsSlice.reducer;
