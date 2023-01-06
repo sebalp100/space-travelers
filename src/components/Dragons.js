@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { nanoid } from 'nanoid';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import { joinDragon, cancelDragon } from '../redux/dragon/dragon';
@@ -25,7 +24,7 @@ const Dragons = () => {
               <div className="dragon-images">
                 <AwesomeSlider>
                   {dragon.flickr_images.map((image) => (
-                    <div key={nanoid()} data-src={image} />
+                    <div key={dragon.id} data-src={image} />
                   ))}
                 </AwesomeSlider>
               </div>

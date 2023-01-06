@@ -38,6 +38,8 @@
   padding: 2px;
   border-radius: 3px;
   margin-right: 5px;
+  font-size: 20px;
+  font-weight: 400;
 }
 
 .reservation-button {
