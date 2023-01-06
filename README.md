@@ -78,6 +78,11 @@ alt="logo" width="140"  height="auto" />
 - Cancel Dragon reservation
 - Display reservations list on My profile page
 
+### Future Features <a name="future-features"></a>
+- Improve style
+- Implement Mobile version
+- User interactions (leaving comments)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
