@@ -84,7 +84,7 @@ alt="logo" width="140"  height="auto" />
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-You can find a live version of the project here:
+Not available yet
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,17 +161,17 @@ To run tests, run the following command:
 
 > Mention all of the collaborators of this project.
 
-👤 **Author1**
+👤 **Sebastian Martin**
 
 - GitHub: [@sebalp100](https://github.com/sebalp100)
 - LinkedIn: [Sebastian Martin](https://www.linkedin.com/in/sebastian-martin-956b2724a/)
 
-👤 **Author2**
+👤 **Amen Tetteh**
 
 - GitHub: [@amentetteh](https://github.com/amentetteh)
 - LinkedIn: [Amen Tetteh](https://www.linkedin.com/in/amentetteh/)
 
-👤 **Author3**
+👤 **Simon Gideon**
 
 - GitHub: [@SimonGideon](https://github.com/SimonGideon)
 - LinkedIn: [Simon Gideon](https://linkedin.com/in/mnayi-gideon)
