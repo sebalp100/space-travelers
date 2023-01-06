@@ -34,7 +34,7 @@ alt="logo" width="140"  height="auto" />
 
 # 📖 Space Travelers Hub <a name="about-project"></a>
 
-> In this project, we are setting up website that allows user to reserve and book their favorite rockets, missions and dragons spaceships, using real live data from the SpaceX API.
+> In this project, we are setting up website that allows users to reserve and book their favorite rockets, missions and dragons spaceships, using real live data from the SpaceX API.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -84,7 +84,7 @@ alt="logo" width="140"  height="auto" />
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-You can find a live version of the project here: https://math-magician-react-app.onrender.com/
+You can find a live version of the project here:
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
