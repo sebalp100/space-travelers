@@ -1,14 +1,14 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import Dragons from './Dragons';
-import store from '../redux/configureStore';
+import Rockets from '../Rockets';
+import store from '../../redux/configureStore';
 
-describe('Dragons', () => { });
-it('Testing Dragons component rendering', () => {
+describe('Rockets', () => { });
+it('Testing Rockets component rendering', () => {
   const component = render(
     <Provider store={store}>
-      <Dragons />
+      <Rockets />
     </Provider>,
 
   );
